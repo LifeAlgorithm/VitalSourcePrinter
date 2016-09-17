@@ -14,7 +14,6 @@ try:
     import warnings
     from tkinter import *
     import tkinter.filedialog as filedialog
-
 except:
     print("Please install PyPDF2 and pyautogui. Refer to video or documentation for help")
     sys.exit()
