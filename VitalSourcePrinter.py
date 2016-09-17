@@ -166,7 +166,7 @@ def main():
                     while (os.path.isfile(filedir + File2.pdf) != True):
                        time.sleep(10) 
               
-                try: #not ideal code handling an excpetion here, but it works. I need to investigate a bug that yields OSError(22, 'Invalid argument')
+                try: #not ideal handling , but it works. I need to investigate a bug that yields OSError(22, 'Invalid argument')
                     pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
                 except:
                     time.sleep(5)
