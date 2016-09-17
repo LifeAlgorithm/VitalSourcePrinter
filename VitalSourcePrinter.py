@@ -1,3 +1,4 @@
+
 '''
 This script is designed to legally and automatically print your purchased e-books from VitalSource.com
 
@@ -144,10 +145,10 @@ def main():
         for page in range(2, len(RomanBookList), 2):
                 pyautogui.hotkey('ctrl', 'p', interval = 0.25)
                 pyautogui.press('tab', 2, interval = 0.25)
-                pyautogui.press('delete', 5, interval = 0.25)
+                pyautogui.press('delete', 6, interval = 0.25)
                 pyautogui.typewrite(RomanBookList[page], interval = 0.25)
                 pyautogui.press('tab', interval = 0.25)
-                pyautogui.press('delete', 5, interval = 0.25)
+                pyautogui.press('delete', 6, interval = 0.25)
                 pyautogui.typewrite(RomanBookList[page + 1])
                 pyautogui.typewrite(['tab', 'tab', 'enter', 'enter'], interval = 0.75)
                 pyautogui.typewrite("File2", interval = 0.5)
@@ -164,8 +165,20 @@ def main():
                        time.sleep(10)
                     while (os.path.isfile(filedir + File2.pdf) != True):
                        time.sleep(10) 
-                pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
-                pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+              
+                try: #not ideal code handling an excpetion here, but it works. I need to investigate a bug that yields OSError(22, 'Invalid argument')
+                    pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
+                except:
+                    time.sleep(5)
+                    pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
+
+                try:
+                    pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+                except:
+                    time.sleep(5)
+                    pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+
+
                 pdfWriter = PyPDF2.PdfFileWriter()
                 for pageNum in range(pdf1Reader.numPages):
                     pageObj = pdf1Reader.getPage(pageNum)
@@ -225,8 +238,18 @@ def main():
                        time.sleep(10)
                     while (os.path.isfile(filedir + File2.pdf) != True):
                        time.sleep(10) 
-                pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
-                pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+                try: 
+                    pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
+                except:
+                    time.sleep(5)
+                    pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
+
+                try:
+                    pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+                except:
+                    time.sleep(5)
+                    pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+                
                 pdfWriter = PyPDF2.PdfFileWriter()   
                 for pageNum in range(pdf1Reader.numPages):
                     pageObj = pdf1Reader.getPage(pageNum)
@@ -274,8 +297,7 @@ if __name__ == "__main__": main()
 ''' 
 Final note
 
-I hope this script serves you well. A lot of the actual code was written for basic functionality and not neccessarily optimization.
+I hope this script serves you well. A lot of the actual code was written for basic functionality and not neccessarily optimization and readability.
 Suggestions for refactoring and improvement are always appreciated.
 
 '''
-
