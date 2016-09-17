@@ -105,7 +105,7 @@ def main():
     root.focus_force()
     # credits to http://stackoverflow.com/questions/3375227/how-to-give-tkinter-file-dialog-focus
 
-    filedir = filedialog.askdirectory() + '/'
+    filedir = filedialog.askdirectory() + '//'
 
     if len(NumberList)%2 != 0 :
         NumberList += [ NumberList[-1] ]
