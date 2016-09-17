@@ -267,7 +267,8 @@ def main():
 if __name__ == "__main__": main()
 
 
-''' Final note
+''' 
+Final note
 
 I hope this script serves you well. A lot of the actual code was written for basic functionality and not neccessarily optimization.
 Suggestions for refactoring and improvement are always appreciated.
