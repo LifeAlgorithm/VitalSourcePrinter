@@ -1,4 +1,3 @@
-
 '''
 This script is designed to legally and automatically print your purchased e-books from VitalSource.com
 
@@ -143,23 +142,28 @@ def main():
 
         print("Page: " + '1' + ' of ' + str(len(RomanBookList) ))
         for page in range(2, len(RomanBookList), 2):
-                pyautogui.hotkey('ctrl', 'p')
+                pyautogui.hotkey('ctrl', 'p', interval = 0.25)
                 pyautogui.press('tab', 2, interval = 0.25)
                 pyautogui.press('delete', 5, interval = 0.25)
                 pyautogui.typewrite(RomanBookList[page], interval = 0.25)
                 pyautogui.press('tab', interval = 0.25)
                 pyautogui.press('delete', 5, interval = 0.25)
-                pyautogui.typewrite(RomanBookList[page + 1], interval = 0.25)
-                pyautogui.typewrite(['tab', 'tab', 'enter', 'enter'], interval = 0.5 )        
-                pyautogui.typewrite("File2", interval = 0.25)
-                pyautogui.press('enter', interval = 0.25)
-                time.sleep(1.5)
-                pdf1File = open(filedir + 'Ebook.pdf', 'rb')
+                pyautogui.typewrite(RomanBookList[page + 1])
+                pyautogui.typewrite(['tab', 'tab', 'enter', 'enter'], interval = 0.75)
+                pyautogui.typewrite("File2", interval = 0.5)
+                pyautogui.press('enter', interval = 0.5)
+                while (os.path.isfile(filedir + "Ebook.pdf") != True):
+                    time.sleep(2)
+                while (os.path.isfile(filedir + "File2.pdf") != True):
+                    time.sleep(2) 
                 try:
-                        pdf2File = open(filedir + 'File2.pdf', 'rb')
+                    pdf1File = open(filedir + 'Ebook.pdf', 'rb')
+                    pdf2File = open(filedir + 'File2.pdf', 'rb')
                 except:
-                        time.sleep(1)
-                        pdf2File = open(filedir + 'File2.pdf', 'rb')
+                    while (os.path.isfile(filedir + Ebook.pdf) != True):
+                       time.sleep(10)
+                    while (os.path.isfile(filedir + File2.pdf) != True):
+                       time.sleep(10) 
                 pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
                 pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
                 pdfWriter = PyPDF2.PdfFileWriter()
@@ -274,3 +278,4 @@ I hope this script serves you well. A lot of the actual code was written for bas
 Suggestions for refactoring and improvement are always appreciated.
 
 '''
+
