@@ -1,6 +1,8 @@
 # VitalSourcePrinter
 Code to legally and automatically print your purchased e-books from VitalSource.com
 
+This program automates the printing of PDF's from the Vital Source Bookshelf. The Vital Source Bookshelf only lets the user print 2 pages at a time, and manually doing this for the entire book is tedious and time consuming. This program automatically prints any selection or the entirety of an e-book, page by page, and rapidly concatenates everything into a single PDF file. As this program makes use of keyboard automation, this process assumes that the user is away from the computer for the duration of the process, though the user at any time can stop the script from continuing. 
+
 To get started you are going to need a working version of Python 3 because as of this time the only working script is written in Python 3.
 
 If you're just installing Python 3 for the first time or reinstalling it, I highly recommend using Python 3.4.0 or higher as this version comes built with a feature called pip that easily allows you to install approved third party packages not included with Python by default. To find more information about pip, visit: https://pypi.python.org/pypi/pip 
@@ -28,7 +30,7 @@ OS X and Linux users:
 - pip3 install PyPDF2
 - pip3 install pyautogui
 
-Now you're ready to get started.
+Now you're ready to get started. In the case that you find the remainder of this tutorial to be visually hard to follow, be sure to check out the tutorial video.
 
 
 
