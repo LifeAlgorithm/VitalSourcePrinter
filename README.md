@@ -18,7 +18,7 @@ The next things you need are the following third party packages:
 You of course must have Python 3 to install these packages. The easiest way to securely download and install these packages involves calling pip from your command prompt / terminal. If you don't have pip installed, you will have to manually download and insert these packages:
 https://docs.python.org/3/install/
 
-This guide will proceed using pip. Navigate to your terminal and type the following one line at a time:
+This guide will proceed using pip. Navigate to your terminal and type the following commands one line at a time:
 
 Windows users
 
@@ -32,16 +32,16 @@ OS X and Linux users:
 
 Now you're ready to get started. In the case that you find the remainder of this tutorial visually hard to follow, be sure to check out the tutorial video.
 
-First let's open up VitalSource Book Shelf. Double click on the ebook you want to print to get it to pop-out. Now that we have it in place, let's make a new folder for our printed ebook to be located. For a simple example, I will make a folder on my desktop called "Ebook"
+First open up VitalSource Book Shelf. Double click on the ebook you want to print to get it to pop-out. Now that you have it in place, make a new folder for your printed ebook to be located. A simple example could be a folder on your desktop called "Ebook"
 
 The next part is very important. The script will not work unless three conditions are met. Firstly, you need to have a PDF printer that doesn't automatically open the newly printed PDF. For example, Adobe does this. You will need to disable this functionality if want the script to work. In the future, the script can be improved to account for this situation. One working PDF printer that comes with Windows is "Microsoft Print to PDF" and I reccommend using that if you are on Windows. I'm currently not too familiar with PDF printers for OS X and other systems and it would be appreciated if anyone can give an example of the analog for "Microsoft Print to PDF." Otherwise, any PDF printer that doesn't open new PDF's automatically, or one that can turn off this feature, will work.
 
 The second condition is that a "sample pdf" needs to be printed at the location of your ebook folder. This needs to be done to ensure that all intermediary PDF files being printed from VitalSource Bookshelf are in that ebook folder so the script knows where to look for them. A strange analogy that may explain this situation: "all the customers need to stay inside the (in-door) restaurant or else there will be no business." All the intermediary files need to be in the folder or else the script will have nothing to concatenate. 
 Ctrl + P and print a sample 2 page PDF to your ebook folder and that will set VitalSource to do its printing there.
 
-The last condition is that you must have enough disk space to save your ebook. A 1270 page ebook took up 673 MB, which translates to about 1.89 MB per page. Bare in mind that ebooks widely differ in their content and hence there is a lot of variance in the possibilities of disk space usage so the final memory of the finished ebook could be widely different. To reduce the memory size of the finished ebook, various free PDF compressers exist such as https://smallpdf.com/compress-pdf, which has no file size limits and can reduce the size by up to 75% (the 1270 page ebook turned into [pending] MB). For safety, I reccommend having at least 1 GB of disk space available. 
+The last condition is that you must have enough disk space to save your ebook. A 1270 page ebook took up 673 MB, which translates to about 1.89 MB per page. Bare in mind that ebooks widely differ in their content and hence there is a lot of variance in the possibilities of disk space usage so the final memory of the finished ebook could be widely different. To reduce the memory size of the finished ebook, various free PDF compressers exist such as https://smallpdf.com/compress-pdf, which has no file size limits and can reduce the size by up to 75% (the 1270 page ebook turned from 673 MB into 179 MB!). For safety, I reccommend having at least 1 GB of disk space available. 
 
-Next download VitalSourcePrinter.py if you haven't already. This is the script we will be running to print our ebook. Open VitalSourcePrinter.py in your environment of choice. Python usually comes with a default environment called IDLE that can be used if you don't have an environment that supports Python. This can be easily performed by right clicking the .py file and clicking "edit with IDLE"
+Next download VitalSourcePrinter.py if you haven't already. This is the script you will be running to print your ebook. Open VitalSourcePrinter.py in your environment of choice. Python usually comes with a default environment called IDLE that can be used if you don't have an environment that supports Python. This can be easily performed by right clicking the .py file and clicking "edit with IDLE"
 
 For viewing and operational purposes, it's a good idea to have the code view and the VitalSource ebook window close to each other. Once the script runs, it will automate keyboard actions so you need to be able to call focus to the VitalSource ebook window by clicking on it before the keyboard automations start. This will be touched upon soon.
 
