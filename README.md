@@ -28,11 +28,13 @@ This guide will proceed using pip. Navigate to your terminal and type the follow
 Windows users
 
 - pip install PyPDF2
+- pip install Pillow
 - pip install pyautogui
 
 OS X and Linux users:
 
 - pip3 install PyPDF2
+- pip3 install Pillow
 - pip3 install pyautogui
 
 Now you're ready to get started. In the case that you find the remainder of this tutorial visually hard to follow, be sure to check out the tutorial video.
