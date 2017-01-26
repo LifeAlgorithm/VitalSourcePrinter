@@ -1,5 +1,3 @@
-
-
 '''
 This script is designed to legally and automatically print your purchased e-books from VitalSource.com
 
@@ -65,8 +63,8 @@ def main():
         print(str(8 - (seconds + 1))) 
                 
     
-    PageEntry1 = PrintList[0]
-    PageEntry2 = PrintList[1]
+    PageEntry1 = printList[0]
+    PageEntry2 = printList[1]
                                             
     pyautogui.hotkey('ctrl', 'p')
     pyautogui.press(keys = 'tab', presses = 2, interval = 0.25)
@@ -81,14 +79,14 @@ def main():
     time.sleep(0.25)
 
     
-    for page in range(2, len(PrintList), 2):
+    for page in range(2, len(printList), 2):
                     pyautogui.hotkey('ctrl', 'p', interval = 0.25)
                     pyautogui.press('tab', 2, interval = 0.25)
                     pyautogui.press('delete', 5, interval = 0.25)
-                    pyautogui.typewrite(PrintList[page], interval = 0.25)
+                    pyautogui.typewrite(printList[page], interval = 0.25)
                     pyautogui.press('tab', interval = 0.25)
                     pyautogui.press('delete', 5, interval = 0.25)
-                    pyautogui.typewrite(PrintList[page + 1])
+                    pyautogui.typewrite(printList[page + 1])
                     pyautogui.typewrite(['tab', 'tab', 'enter', 'enter'], interval = 0.75)
                     pyautogui.typewrite("File2", interval = 0.5)
                     pyautogui.press('enter', interval = 0.5)
