@@ -3,7 +3,7 @@ This script is designed to legally and automatically print your purchased e-book
 
 See ReadMe at https://github.com/LifeAlgorithm/VitalSourcePrinter and/or watch tutorial video for instructions
 
-This version is for printing chapter pages
+This version is for printing chapter pages without the Ctrl + pagedown requirement
 '''
 
 try:   
