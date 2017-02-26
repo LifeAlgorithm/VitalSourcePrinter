@@ -1,12 +1,16 @@
 # VitalSourcePrinter
 Code to legally and automatically print your purchased e-books from VitalSource.com
 
-This program automates the printing of PDF's from the VitalSource Bookshelf. The VitalSource Bookshelf only lets the user print 2 pages at a time, and manually doing this for the entire book is tedious and time consuming. This program automatically prints any selection or the entirety of an e-book, page by page, and rapidly concatenates everything into a single PDF file. As this program makes use of keyboard automation, this process assumes that the user is away from the computer for the duration of the process, though the user at any time can stop the script from continuing. 
+This program automates the printing of PDF's from the VitalSource Bookshelf. The VitalSource Bookshelf usually only lets the user print 2 pages at a time, and manually doing this for the entire book is tedious and time consuming. This program automatically prints any selection or the entirety of an e-book, page by page, and rapidly concatenates everything into a single PDF file. As this program makes use of keyboard automation, this process assumes that the user is away from the computer for the duration of the process, though the user at any time can stop the script from continuing. 
+
+New scripts have been introduced for situations where the pages appear like "4-1" and situations where the user is required to press Ctrl + Pagedown to go to the next chapter.
 
 Legal disclaimer: 
 Usage of any content produced by this script must abide the terms set out by VitalSource at https://support.vitalsource.com/hc/en-us/articles/204612518. In a nutshell this means no commercial usage or distribution, and only personal use is allowed. If you do decide to mass distribute, do so at your own risk since your name and email will appear on the top page of each print out.
 
 --------Getting Started---------
+
+Here's a link to the video tutorial (made for the original script): https://www.youtube.com/watch?v=6TUxpMezwUA
 
 To get started you are going to need a working version of Python 3 because as of this time the only working script is written in Python 3. Visit https://www.python.org/downloads/ to find the desired version for your operating system.
 
