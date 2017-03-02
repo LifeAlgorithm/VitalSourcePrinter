@@ -117,10 +117,16 @@ def main():
 
     filedir = filedialog.askdirectory() + '//'
 
-    if len(printList)%2 != 0 : #ensures an even amount of print entries
-        printList += [ printList[-1] ]           
+    if len(NumberList)%2 != 0 : #ensures an even amount of print entries by copying last page
+        NumberList += [ NumberList[-1] ]           
                              
     print("\nClick on the active VitalSource window to get started.\nThe program will start in: 8")
+    for seconds in range(8):
+        time.sleep(1)
+        if seconds == 7:
+            print("Starting now...\n")
+            break
+        print(str(8 - (seconds + 1))) 
 
 
 
