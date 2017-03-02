@@ -53,24 +53,38 @@ Now you're ready to get started. In the case that you find the remainder of this
 
 ## Walkthrough 
 
-First open up VitalSource Book Shelf. Double click on the ebook you want to print to get it to pop-out. Now that you have it in place, make a new folder for your printed ebook to be located. A simple example could be a folder on your desktop called "Ebook"
+This section will go through each part of the process step-by-step. 
 
-The next part is very important. The script will not work unless three conditions are met. Firstly, you need to have a PDF printer that doesn't automatically open the newly printed PDF. For example, Adobe does this. You will need to disable this functionality if want the script to work. In the future, the script can be improved to account for this situation. One working PDF printer that comes with Windows is "Microsoft Print to PDF" and I reccommend using that if you are on Windows. I'm currently not too familiar with PDF printers for OS X and other systems and it would be appreciated if anyone can give an example of the analog for "Microsoft Print to PDF." Otherwise, any PDF printer that doesn't open new PDF's automatically, or one that can turn off this feature, will work.
+### Pre-requisites
+
+Even with the necessary packages and software components, a few things need to be set before the script can function correctly.
+
+First open up VitalSource Book Shelf. Double click on the ebook you want to print to get it to pop-out. Now that you have it in place, make a new destination folder for your printed ebook to be located. A simple example could be a folder on your desktop called "Ebook". Make sure this folder doesn't contain a pdf named "Ebook.pdf," as that is used as a temp file name by script.
+
+The next part is very important. The script will not work unless these three pre-conditions are met:
+
+- You need to have a PDF printer that doesn't automatically open the newly printed PDF
+- You need to print a "sample pdf" at the location of your destination ebook folder
+- You need sufficient disk space to save, as the output PDF tends to be large in size (possibly up to a GB or more)
+
+Firstly, you need to have a PDF printer that doesn't automatically open the newly printed PDF. For example, Adobe does this. You will need to disable this functionality if want the script to work. In the future, the script can be improved to account for this situation. One working PDF printer that comes with Windows is "Microsoft Print to PDF" and I reccommend using that if you are on Windows. I'm currently not too familiar with PDF printers for OS X and other systems and it would be appreciated if anyone can give an example of the analog for "Microsoft Print to PDF." Otherwise, any PDF printer that doesn't open new PDF's automatically, or one that can turn off this feature, will work.
 
 The second condition is that a "sample pdf" needs to be printed at the location of your ebook folder. This needs to be done to ensure that all intermediary PDF files being printed from VitalSource Bookshelf are in that ebook folder so the script knows where to look for them. A strange analogy that may explain this situation: "all the customers need to stay inside the (in-door) restaurant or else there will be no business." All the intermediary files need to be in the folder or else the script will have nothing to concatenate. 
 Ctrl + P and print a sample 2 page PDF to your ebook folder and that will set VitalSource to do its printing there.
 
 The last condition is that you must have enough disk space to save your ebook. A 1270 page ebook took up 673 MB, which translates to about 1.89 MB per page. Bare in mind that ebooks widely differ in their content and hence there is a lot of variance in the possibilities of disk space usage so the final memory of the finished ebook could be widely different. To reduce the memory size of the finished ebook, various free PDF compressers exist such as https://smallpdf.com/compress-pdf, which has no file size limits and can reduce the size by up to 75% (the 1270 page ebook turned from 673 MB into 179 MB!). For safety, I reccommend having at least 1 GB of disk space available. 
 
-Next download VitalSourcePrinter.py if you haven't already. This is the script you will be running to print your ebook. Open VitalSourcePrinter.py in your environment of choice. Python usually comes with a default environment called IDLE that can be used if you don't have an environment that supports Python. This can be easily performed by right clicking the .py file and clicking "edit with IDLE"
+### Executing the script
+
+Open VitalSourcePrinter.py in your environment of choice. Python usually comes with a default environment called IDLE that can be used if you don't have an environment that supports Python. This can be easily performed by right clicking the .py file and clicking "edit with IDLE"
 
 For viewing and operational purposes, it's a good idea to have the code view and the VitalSource ebook window close to each other. Once the script runs, it will automate keyboard actions so you need to be able to call focus to the VitalSource ebook window by clicking on it before the keyboard automations start. This will be touched upon soon.
 
-Now run the script. Follow the prompt and input the desired page ranges for roman numerals and regular numbers. If no roman numerals are desired, input "None" or "none". Only valid numbers and roman numerals work. 
+Now run the script. Follow the prompt and input the desired page ranges for roman numerals and regular numbers. If no roman numerals are desired, input "None" or "none". Only valid numbers and roman numerals work. If you're using another script aside from the original script, you will be prompted for other fields such as chapter count and chapter last page.
 
 Side note: Typing names like "inside front cover" won't be recieved by the script, and hence if you would like pages with specific names to be included, you would need to manually print those out and separately concatenate them to the finished Ebook pdf. This could be another feature to be added in the future.
 
-After the page ranges are entered, the program will prompt you to pick a folder. You must pick the ebook folder, or else the script won't function in accordance with VitalSource. I prefer not to come up with another terrible restaurant analogy to explain why but the main reason is because files won't be found properly. After picking the folder, a countdown of 8 seconds will begin before the printing automation starts. Click on the ebook window and the script will run. 
+After the page ranges are entered, the program will prompt you to pick a folder. You must pick the ebook folder you printed your sample PDF in. After picking the folder, a countdown of 8 seconds will begin before the printing automation starts. Click on the active VitalSource window and the script will run. 
 
 Note: To stop the script at any time, mouse over to the console window where the script is running and close it. It will say "the program is still running, do you want to kill it?" Choose "yes".
 
