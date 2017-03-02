@@ -59,7 +59,7 @@ This section will go through each part of the process step-by-step.
 
 Even with the necessary packages and software components, a few things need to be set before the script can function correctly.
 
-First open up VitalSource Book Shelf. Double click on the ebook you want to print to get it to pop-out. Now that you have it in place, make a new destination folder for your printed ebook to be located. A simple example could be a folder on your desktop called "Ebook". Make sure this folder doesn't contain a pdf named "Ebook.pdf," as that is used as a temp file name by script.
+First open up VitalSource Book Shelf. Double click on the ebook you want to print to get it to pop-out. Now that you have it in place, make a new destination folder for your printed ebook to be located. A simple example could be a folder on your desktop called "Ebook". Make sure this folder doesn't contain a pdf named "Ebook.pdf," as that is used as a temp file name by the script.
 
 The next part is very important. The script will not work unless these three pre-conditions are met:
 
