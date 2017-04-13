@@ -46,6 +46,15 @@ def main():
 
     print("Welcome to the VitalSource Ebook Printer. \n")
 
+    validInput = False;
+    while(not validInput):
+        try:
+             userPrintCount = int(input("How many pages at a time can you print?: "))
+             validInput = True
+        except:
+            print("\nInvalid input. Please enter an integer.\n")
+                           
+    
     while(True):
         try:
             RomanStart = input("Roman Numeral Start (or 'No'): ")
@@ -113,7 +122,7 @@ def main():
 
     if not (RomanStart == 'No' or RomanStart == 'no'):
         if roman_to_int(RomanEnd.upper()):
-            if len(RomanBookList)%2 != 0 :  #ugly coding, but it gets the job done
+            if len(RomanBookList)%2 != 0 :  
                 RomanBookList += [ RomanBookList[-1] ]
                 
     print("\nClick on the active VitalSource window to get started.\nThe program will start in: 8")
@@ -124,7 +133,7 @@ def main():
             break
         print(str(8 - (seconds + 1))) 
                 
-    if not (RomanStart == 'No' or RomanStart == 'no'):  
+    if not (RomanStart == 'No' or RomanStart == 'no'):  #So yes.
 
         PageEntry1 = RomanBookList[0]
         PageEntry2 = RomanBookList[1]
@@ -140,18 +149,23 @@ def main():
         
         pyautogui.press(keys = 'tab', interval = 0.25)
         pyautogui.press('delete', 5, interval = 0.25)
+               
+        
         pyautogui.typewrite("2", interval = 0.25)
         pyautogui.press(keys = 'tab', interval = 0.25)
-        pyautogui.press(keys = 'enter', interval = 0.25)
-        pyautogui.press(keys = 'enter', interval = 0.25)
-        #pyautogui.typewrite(['tab', 'tab', 'enter', 'enter'], interval = 0.25 )
         
+        pyautogui.press(keys = 'enter', interval = 0.25)
+        pyautogui.press(keys = 'enter', interval = 0.25)
+            
         pyautogui.typewrite("Ebook", interval = 0.50)
         pyautogui.press('enter', interval = 0.5)
         time.sleep(0.25)
 
         print("Page: " + '1' + ' of ' + str(len(RomanBookList) ))
-        for page in range(2, len(RomanBookList), 2):
+        for page in range(2, len(RomanBookList), userPrintCount):
+                pagesLeft = len(RomanBookList) - (page)
+                print("Roman Pages left: " + str(pagesLeft))
+
                 pyautogui.hotkey('ctrl', 'p', interval = 0.25)
                 #pyautogui.press('tab', 2, interval = 0.25)
                 pyautogui.press(keys = 'tab', interval = 0.25)
@@ -160,15 +174,29 @@ def main():
                 pyautogui.typewrite(RomanBookList[page], interval = 0.25)
                 pyautogui.press('tab', interval = 0.25)
                 pyautogui.press('delete', 6, interval = 0.25)
-                pyautogui.typewrite(RomanBookList[page + 1])
+                
+                if (pagesLeft < userPrintCount):
+                    pyautogui.typewrite(RomanBookList[-1])
+                else:
+                    pyautogui.typewrite(RomanBookList[page + (userPrintCount - 1)])
                 
                 pyautogui.press(keys = 'tab', interval = 0.25)
                 pyautogui.press('delete', 5, interval = 0.25)
-                pyautogui.typewrite("2", interval = 0.25)
+
+                #if remaining pages < user count, use remaining pages, else use user input
+
+                if (pagesLeft < userPrintCount):
+                    pyautogui.typewrite(pagesLeft, interval = 0.25)
+                else:
+                    pyautogui.typewrite(str(userPrintCount), interval = 0.25)
+    
+
+
                 pyautogui.press(keys = 'tab', interval = 0.25)
+
                 pyautogui.press(keys = 'enter', interval = 0.25)
                 pyautogui.press(keys = 'enter', interval = 0.25)
-                #pyautogui.typewrite(['tab', 'tab', 'enter', 'enter'], interval = 0.75)
+              
                 
                 pyautogui.typewrite("File2", interval = 0.5)
                 pyautogui.press('enter', interval = 0.5)
@@ -240,19 +268,34 @@ def main():
         time.sleep(0.25)
 
     def NumberProcess(start):
-        for page in range(start, len(NumberList), 2):
+        for page in range(start, len(NumberList), userPrintCount):
+                pagesLeft = len(NumberList) - (page)
+                print("Pages left: " + str(pagesLeft))
+
+                
+
                 pyautogui.hotkey('ctrl', 'p', interval = 0.25)
                 pyautogui.press('tab', 2, interval = 0.25)
                 pyautogui.press('delete', 5, interval = 0.25)
                 pyautogui.typewrite(NumberList[page], interval = 0.25)
                 pyautogui.press('tab', interval = 0.25)
                 pyautogui.press('delete', 5, interval = 0.25)
-                pyautogui.typewrite(NumberList[page + 1])
-                
+
+                if (pagesLeft < userPrintCount):
+                    pyautogui.typewrite(NumberList[-1])
+                else:
+                    pyautogui.typewrite(NumberList[page + (userPrintCount - 1)])
+                                        
                 pyautogui.press(keys = 'tab', interval = 0.25)
                 pyautogui.press('delete', 5, interval = 0.25)
-                pyautogui.typewrite("2", interval = 0.25)
+                                        
+                if (pagesLeft < userPrintCount):
+                    pyautogui.typewrite(pagesLeft, interval = 0.25)
+                else:
+                    pyautogui.typewrite(str(userPrintCount), interval = 0.25)
+                  
                 pyautogui.press(keys = 'tab', interval = 0.25)
+                                        
                 pyautogui.press(keys = 'enter', interval = 0.25)
                 pyautogui.press(keys = 'enter', interval = 0.25)
                 #pyautogui.typewrite(['tab', 'tab', 'enter', 'enter'], interval = 0.75)
